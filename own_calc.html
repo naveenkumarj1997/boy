@@ -1,0 +1,145 @@
+<html>
+    <head>
+        
+        <title>
+           avengers calculator
+        </title>
+        <style>
+            *{
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
+  background-color:black;
+  font-family:sans-serif ;
+  outline:none;
+}
+.box
+{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.calc
+{
+    background-color:black;
+    
+    padding: 15px;
+    border-radius: 30px;
+    box-shadow:  -5px -5px 20px #ffff00,
+                      5px 5px 12px  yellow;
+     display: grid; 
+     grid-template-columns: repeat(4,70px);
+
+}
+.calc:hover
+{
+    background-color:whitesmoke;
+}
+button:hover
+{
+    background-color: magenta;
+}
+
+input
+{
+  grid-column: span 4;
+  height: 70px;
+  width: 260px;
+  background-color:lime ;
+  box-shadow:  -5px -5px 12px whitesmoke,
+              inset  5px 5px 12px gray;
+  border: none;
+  border-radius: 30px;
+  color:gray;
+  font-size: 50px;
+  
+  text-align: end;
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+button
+{
+    height: 48px;
+    width: 48px;
+    background-color: whitesmoke;
+    box-shadow:   -5px -5px 12px whitesmoke,
+                        5px 5px 12px grey;
+    border: none;
+    border-radius: 50px; 
+    margin: 8px;   
+    font-size:16px;
+    font-style: oblique;       
+}
+.equal
+{
+    width: 115px;
+    border-radius: 40px;
+    background-color: whitesmoke;
+    box-shadow:  inset -5px -5px 12px whitesmoke,
+                        5px 5px 12px grey;
+}
+        </style>
+
+    </head>
+    <body>
+        <div class="box">
+           <div class ="calc">
+              <input type="text" placeholder="ena-venu" id="out">
+              <button onclick="Clear()">CL</button>
+              <button onclick="del()">DEL</button>
+              <button onclick="display('%')">%</button>
+              <button onclick="display('/')">/</button>
+              <button onclick="display('7')">7</button>
+              <button onclick="display('8')">8</button>
+              <button onclick="display('9')">9</button>
+              <button onclick="display('*')">*</button>
+              <button onclick="display('4')">4</button>
+              <button onclick="display('5')">5</button>
+              <button onclick="display('6')">6</button>
+              <button onclick="display('-')">-</button>
+              <button onclick="display('1')">1</button>
+              <button onclick="display('2')">2</button>
+              <button onclick="display('3')">3</button>
+              <button onclick="display('+')">+</button>
+              <button onclick="display('.')">.</button>
+              <button onclick="display('0')">0</button>
+              <button onclick="calculate()" class="equal">=</button>
+
+           </div>
+        </div>
+        <script>
+            let output=document.getElementById("out");
+            function display(number)
+            {
+              output.value +=number;
+            }
+            function calculate()
+            {
+                try
+                {
+                    output.value=eval( output.value);
+                }
+                catch(e)
+                {
+                   
+                    Clear();
+                    display("odi poiru");
+                }
+            }
+            function Clear()
+            {
+                output.value= "";
+            }
+            function del()
+            {
+                output.value=output.value.slice(0,-1);
+            }
+        
+
+        
+        </script>
+    </body>
+</html>
